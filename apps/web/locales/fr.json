@@ -42,7 +42,7 @@
     "presentation": "Bienvenue sur ma page portfolio ! Vous trouverez ici une collection soigneusement organisée de mon travail et de mes réalisations. À travers ce portfolio, je mets en valeur mon expertise, ma créativité et la valeur que je peux apporter à vos projets.",
     "portfolio_name": "Portfolio {name}",
     "error_reporting_powered_by": "Rapport d'erreur propulsé par",
-    "coverage_powered_by": "Couverture de code propulsée par"
+    "coverage_powered_by": "Couverture de code propulsé par"
   },
   "PortfolioSlug": {
     "meta_title": "Portfolio {slug}",
@@ -71,5 +71,209 @@
     "dashboard_link": "Tableau de bord",
     "user_profile_link": "Gérer votre compte",
     "sign_out": "Se déconnecter"
+  },
+  "Landing": {
+    "siteConfig": {
+      "name": "SaaSy Land",
+      "description": "Un starter open-source pour les projets full-stack Next.js 14 avec authentification avancée et plusieurs configurations de base de données. L'objectif de ce projet est de fournir une base solide pour construire et lancer plus rapidement des produits SaaS, des sites marketing, des blogs, et plus encore."
+    },
+    "navItems": {
+      "about": "À propos",
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "faq": "FAQ",
+      "docs": "Documentation",
+      "blog": "Blog"
+    },
+    "navItemsFooter": {
+      "company": {
+        "title": "Entreprise",
+        "about": "À propos",
+        "privacy": "Confidentialité",
+        "terms": "Conditions",
+        "careers": "Carrières"
+      },
+      "support": {
+        "title": "Support",
+        "docs": "Documentation",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "inspiration": {
+        "title": "Inspiration",
+        "shadcn": "Shadcn",
+        "taxonomy": "Taxonomy",
+        "skateshop": "Skateshop",
+        "acme": "Acme Corp"
+      }
+    },
+    "features": {
+      "authentication": {
+        "title": "Authentification avancée",
+        "description": "Sécurisez l'accès des utilisateurs avec des fonctionnalités d'authentification robustes pour votre application, telles que la vérification par email, la réinitialisation de mot de passe, les liens magiques et les fournisseurs OAuth. Propulsé par Next-Auth."
+      },
+      "database": {
+        "title": "Connexion puissante à la base de données",
+        "description": "Tirez parti de la puissance d'une base de données serverless pour une gestion efficace des données et une livraison de contenu ultra-rapide."
+      },
+      "blog": {
+        "title": "Blog alimenté par Markdown et MDX",
+        "description": "Support de blog moderne, léger, pratique et optimisé pour le SEO. Propulsé par Contentlayer."
+      },
+      "payments": {
+        "title": "Intégration des paiements Stripe",
+        "description": "Ajoutez simplement vos produits ou services, définissez les prix et commencez à vendre en ligne avec cette implémentation entièrement fonctionnelle."
+      },
+      "emails": {
+        "title": "Support d'emails transactionnels",
+        "description": "Assurez une communication fiable par email pour les mises à jour essentielles et les notifications. Propulsé par Resend et React Email."
+      }
+    },
+    "techStack": {
+      "next": "Next",
+      "authJs": "AuthJs",
+      "drizzle": "Drizzle",
+      "prisma": "Prisma",
+      "planetScale": "PlanetScale",
+      "neon": "Neon",
+      "resend": "Resend",
+      "stripe": "Stripe"
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basique",
+        "description": "Parfait pour commencer",
+        "features": [
+          "Jusqu'à 5 projets",
+          "Analyses et rapports basiques"
+        ],
+        "limitations": [
+          "Pas de personnalisation de marque",
+          "Pas de licence commerciale",
+          "Support client limité",
+          "Pas d'accès aux nouvelles fonctionnalités"
+        ]
+      },
+      "standard": {
+        "name": "Standard",
+        "description": "Parfait quand vous commencez à vous développer",
+        "features": [
+          "Jusqu'à 10 projets",
+          "Licence commerciale",
+          "Analyses et rapports avancés",
+          "Support client prioritaire",
+          "Matériels de formation exclusifs"
+        ],
+        "limitations": [
+          "Pas de personnalisation de marque",
+          "Support client limité"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "description": "Parfait pour développer sérieusement votre entreprise",
+        "features": [
+          "Projets illimités",
+          "Licence commerciale",
+          "Analyses et rapports en temps réel",
+          "Matériels de formation exclusifs",
+          "Support client 24/7",
+          "Personnalisation de marque"
+        ],
+        "limitations": []
+      }
+    },
+    "faq": {
+      "what_is": {
+        "question": "Qu'est-ce que {name}?",
+        "answer": "{name} est une collection moderne de modèles de démarrage open source pour les projets full-stack Next.js 14. Construit avec Tailwind CSS, ShadCn, Next-Auth et plusieurs bases de données. Les branches contiennent des configurations autonomes, y compris pour les bases de données serverless comme PostgreSQL avec Neon et MySQL avec PlanetScale, Drizzle ORM, Prisma ORM v.5, mais aussi MongoDB et Supabase."
+      },
+      "what_is_included": {
+        "question": "Qu'est-ce qui est inclus?",
+        "answer": "Plusieurs options de configuration sont disponibles. Selon la branche du dépôt que vous clonez et décidez d'utiliser, vous aurez un projet full-stack avec authentification avancée (par exemple, vérification par email, réinitialisation de mot de passe, connexion par lien magique, connexion sociale OAuth avec Google et Github), synchronisé avec une base de données de votre choix. En plus de cela, vous aurez une page d'atterrissage entièrement fonctionnelle, qui est extrêmement facile à personnaliser, un blog alimenté par Markdown et MDX, des pages de documentation, une intégration des paiements Stripe, et plus encore."
+      },
+      "why_use": {
+        "question": "Pourquoi utiliser {name}?",
+        "answer": "Comme tout est professionnellement préconfiguré et conforme aux dernières normes, vous économisez énormément de temps et d'efforts, que vous pouvez maintenant consacrer à ce qui compte vraiment - construire votre propre produit unique. Et c'est totalement gratuit!"
+      },
+      "pricing_confusion": {
+        "question": "Je suis confus avec les tarifs",
+        "answer": "Notre produit est complètement gratuit et open source. La section tarifs est là pour servir d'exemple de la façon dont vous pourriez la configurer pour votre propre produit SaaS. Nous n'avons aucun plan ni intention de faire de ce produit un produit payant."
+      },
+      "easy_to_use": {
+        "question": "Est-ce facile à utiliser? Comment commencer?",
+        "answer": "{name} est extrêmement facile à utiliser. Vous pouvez commencer en clonant un dépôt GitHub et en suivant la documentation."
+      },
+      "support": {
+        "question": "Puis-je obtenir de l'aide et du support?",
+        "answer": "N'hésitez pas à nous envoyer un email avec vos questions, ou à démarrer une discussion sur GitHub. Bien que nous soyons toujours heureux d'aider, gardez à l'esprit que c'est un produit gratuit, que nous développons par passion pendant notre temps libre et donc, nous ne pouvons pas garantir de temps de réponse."
+      },
+      "maintenance": {
+        "question": "Le produit est-il activement maintenu?",
+        "answer": "{name} est actuellement en développement actif. Nous travaillons à ajouter de nouvelles fonctionnalités et à améliorer celles existantes. Nous travaillons également à améliorer la documentation et à ajouter plus d'exemples. Restez à l'écoute! Vous pouvez également envisager de vous inscrire à notre newsletter pour être informé des nouvelles versions majeures. Nous ne vous enverrons pas de spam, c'est promis!"
+      }
+    },
+    "testimonials": {
+      "time_saving": {
+        "title": "M'a fait gagner beaucoup de temps",
+        "body": "SaaSy Land nous a fait économiser une quantité significative de temps et de ressources. Nous avons pu nous concentrer sur notre cœur de métier, grâce à ses fonctionnalités puissantes.",
+        "name": "Derrick Bowman",
+        "role": "PDG chez PixelCraft Studios"
+      },
+      "perfect_mvp": {
+        "title": "Parfait pour les MVPs",
+        "body": "Pour les startups, SaaSy Land est le choix parfait pour construire des Produits Minimum Viables (MVPs). Il offre une large gamme de composants et de mises en page préconçus qui sont essentiels pour une stratégie rapide de mise sur le marché. Il nous a aidé à économiser des mois de temps de développement et de ressources. SaaSy Land nous a donné un avantage concurrentiel et nous a permis de tester nos idées dans le monde réel plus rapidement.",
+        "name": "Troy Castillo",
+        "role": "Architecte Logiciel chez NexaCorp"
+      },
+      "implementation": {
+        "title": "Qualité d'implémentation incroyable!",
+        "body": "Du concept initial au produit final, la qualité d'implémentation était vraiment incroyable. Bravo à toute l'équipe pour leur dévouement et expertise.",
+        "name": "Darren Miller",
+        "role": "Développeur Senior chez Unicorn Labs"
+      },
+      "support": {
+        "title": "Support client exceptionnel",
+        "body": "Le support client de SaaSy Land est exceptionnel. Ils ont été incroyablement réactifs et utiles tout au long de notre parcours. J'adore leur produit et la façon dont ils le gèrent.",
+        "name": "Beth Craig",
+        "role": "CTO chez Web Wizardry Inc."
+      },
+      "game_changer": {
+        "title": "Un changement de jeu pour les startups",
+        "body": "J'ADORE ce produit! Il a changé ma vie au point où je ne peux plus imaginer commencer un nouveau projet sans lui. Je le recommande de tout cœur.",
+        "name": "Jenny Black",
+        "role": "Chef de Produit chez StellarSoft"
+      },
+      "speechless": {
+        "title": "Sans voix!",
+        "body": "C'est un trésor d'éléments bien conçus et responsifs qui ont considérablement accéléré notre processus de développement. Cela nous a permis de créer des fonctionnalités complexes et des éléments interactifs avec facilité. SaaSy Land non seulement nous fait gagner du temps, mais garantit également un aspect cohérent et professionnel pour notre projet. Nous ne pourrions pas être plus heureux des résultats.",
+        "name": "Kevin Hamilton",
+        "role": "Développeur Junior chez Purple Dash"
+      },
+      "recommendation": {
+        "title": "Je ne peux pas le recommander assez",
+        "body": "Si vous êtes une startup, SaaSy Land est un choix parfait. Il offre les outils dont vous avez besoin pour créer un produit de première classe sans tracas.",
+        "name": "Alfredo Bradley",
+        "role": "Développeur Logiciel chez PixelMiners"
+      },
+      "code_quality": {
+        "title": "Qualité de code exceptionnelle",
+        "body": "La qualité d'implémentation chez SaaSy Land est exceptionnelle. Cela a rendu la création de fonctionnalités complexes un jeu d'enfant et nous a évité de dépenser beaucoup de temps et d'argent en développement.",
+        "name": "Michelle Jensen",
+        "role": "PDG chez DevXpert Digital"
+      },
+      "revolutionized": {
+        "title": "A révolutionné notre processus de développement web",
+        "body": "Notre expérience avec SaaSy Land a été rien de moins que transformationnelle. Cette plateforme a révolutionné notre processus de développement web, le rendant plus rapide et plus efficace que jamais. Les fonctionnalités, outils et support fournis ont dépassé nos attentes, et nous ne pourrions pas être plus heureux des résultats.",
+        "name": "Rafał Kowalski",
+        "role": "Product Owner chez WebTech Co."
+      }
+    },
+    "footer": {
+      "newsletter_text": "Rejoignez notre newsletter aujourd'hui pour rester à jour sur les fonctionnalités et les versions importantes",
+      "built_by_text": "Construit en public par",
+      "license_text": "Librement disponible sous la licence MIT. Profitez-en :)"
+    }
   }
 }

@@ -4,14 +4,17 @@ import * as React from "react"
 import Image from "next/image"
 import { type Feature } from "@/types/landing"
 import Balancer from "react-wrap-balancer"
+import { useTranslations } from "next-intl"
 
-import { features } from "@/data/features"
+import { getFeatures } from "@/data/features"
 
 import { cn } from '@repo/shadcn/lib/utils';
 
 export function FeaturesSection() {
+  const t = useTranslations('Landing')
+  const localizedFeatures = getFeatures(t)
   const [activeFeature, setActiveFeature] = React.useState<Feature | null>(
-    features?.[0] || null
+    localizedFeatures?.[0] || null
   )
 
   return (
@@ -24,16 +27,17 @@ export function FeaturesSection() {
         <div className="flex w-full flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              Discover Our <br />
+              {t('features_section.heading_1', { defaultValue: 'Discover Our' })} <br />
               <span className="bg-gradient-to-r from-pink-600 to-purple-400 bg-clip-text text-transparent">
-                Wholesome Features
+                {t('features_section.heading_2', { defaultValue: 'Wholesome Features' })}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              Take advantage of a fully authentication, data storage, payments,
-              emails, and more available to you instantly.
+              {t('features_section.subheading', { 
+                defaultValue: 'Take advantage of a fully authentication, data storage, payments, emails, and more available to you instantly.'
+              })}
             </Balancer>
           </h3>
         </div>
@@ -41,7 +45,7 @@ export function FeaturesSection() {
         <div className="grid items-center justify-center gap-2 sm:gap-0 md:grid-cols-12">
           <div className="flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 md:col-span-5">
             <div className="md::flex-row flex w-full flex-col gap-2 whitespace-nowrap sm:mx-auto md:mx-0 md:block md:gap-0 md:gap-y-1">
-              {features.map((feature) => (
+              {localizedFeatures.map((feature) => (
                 <div
                   key={feature.title}
                   className={cn(

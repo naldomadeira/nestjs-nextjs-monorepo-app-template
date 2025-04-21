@@ -1,6 +1,7 @@
 import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 
-import { siteConfig } from "@/config/site"
+import { getSiteConfig } from "@/config/site"
 
 import { cn } from '@repo/shadcn/lib/utils';
 
@@ -24,7 +25,12 @@ import { JSX } from "react";
 import { auth } from "@/auth";
 
 export async function Header(): Promise<JSX.Element> {
-  const session = await auth()
+  const session = await auth();
+  
+  const t = await getTranslations('Landing')
+
+  
+  const localizedSiteConfig = getSiteConfig(t);
 
   return (
     <header className="sticky top-0 z-40 flex h-20 w-full bg-transparent">
@@ -34,12 +40,13 @@ export async function Header(): Promise<JSX.Element> {
           className="flex items-center justify-center gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
         >
           <Icons.rocket className="size-6 md:hidden lg:flex" />
-          <span className="hidden md:flex">{siteConfig.name}</span>
+          <span className="hidden md:flex">{`${t('siteConfig.name')} `}
+          </span>
         </Link>
-        <Navigation navItems={siteConfig.navItems} />
+        <Navigation navItems={localizedSiteConfig.navItems} />
         <div className="flex items-center justify-center">
           <ThemeToggle />
-          <NavigationMobile navItems={siteConfig.navItems} />
+          <NavigationMobile navItems={localizedSiteConfig.navItems} />
 
           <nav className="space-x-1">
             {session?.user ? (
@@ -84,7 +91,7 @@ export async function Header(): Promise<JSX.Element> {
                           className="mr-2 size-4"
                           aria-hidden="true"
                         />
-                        Account
+                        {t('profile.account', { defaultValue: 'Account' })}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild disabled>
@@ -93,7 +100,7 @@ export async function Header(): Promise<JSX.Element> {
                           className="mr-2 size-4"
                           aria-hidden="true"
                         />
-                        Settings
+                        {t('profile.settings', { defaultValue: 'Settings' })}
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
@@ -105,12 +112,12 @@ export async function Header(): Promise<JSX.Element> {
               </DropdownMenu>
             ) : (
               <Link
-                aria-label="Get started"
+                aria-label={t('navItems.get_started', { defaultValue: 'Get Started' })}
                 href="/signup"
                 className={cn(buttonVariants({ size: "sm" }), "ml-2")}
               >
-                Get Started
-                <span className="sr-only">Get Started</span>
+                {t('navItems.get_started', { defaultValue: 'Get Started' })}
+                <span className="sr-only">{t('navItems.get_started', { defaultValue: 'Get Started' })}</span>
               </Link>
             )}
           </nav>

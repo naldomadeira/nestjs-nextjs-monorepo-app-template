@@ -1,6 +1,7 @@
 import Balancer from "react-wrap-balancer"
+import { getTranslations } from "next-intl/server"
 
-import { testimonials } from "@/data/testimonials"
+import { getTestimonials } from "@/data/testimonials"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@repo/shadcn/avatar"
 import {
@@ -12,7 +13,10 @@ import {
 } from "@repo/shadcn/card"
 import { JSX } from "react"
 
-export function TestimonialsSection(): JSX.Element {
+export async function TestimonialsSection(): Promise<JSX.Element> {
+  const t = await getTranslations('Landing')
+  const localizedTestimonials = getTestimonials(t)
+
   return (
     <section
       id="testimonials-section"
@@ -23,14 +27,17 @@ export function TestimonialsSection(): JSX.Element {
         <div className="flex flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              Join a Growing <br /> Team of{" "}
+              {t('testimonials_section.heading_1', { defaultValue: 'Join a Growing' })} <br /> 
+              {t('testimonials_section.heading_2', { defaultValue: 'Team of' })}{" "}
               <span className="bg-gradient-to-r from-pink-600 to-purple-400 bg-clip-text text-transparent">
-                Happy Users
+                {t('testimonials_section.heading_3', { defaultValue: 'Happy Users' })}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-2xl text-muted-foreground sm:text-xl sm:leading-8">
-            <Balancer>See what our customers are saying about us.</Balancer>
+            <Balancer>
+              {t('testimonials_section.subheading', { defaultValue: 'See what our customers are saying about us.' })}
+            </Balancer>
           </h3>
         </div>
 
@@ -41,7 +48,7 @@ export function TestimonialsSection(): JSX.Element {
               key={`col-${index + 1}`}
               className="flex flex-col gap-4 lg:gap-6"
             >
-              {testimonials
+              {localizedTestimonials
                 .slice(index * 3, (index + 1) * 3)
                 .map((testimonial) => (
                   <Card

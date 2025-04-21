@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Balancer from "react-wrap-balancer"
+import { getTranslations } from "next-intl/server"
 
-import { siteConfig } from "@/config/site"
+import { getSiteConfig } from "@/config/site"
 
 import { cn } from '@repo/shadcn/lib/utils';
 
@@ -34,9 +35,10 @@ async function getGitHubStars(): Promise<number | null> {
   }
 }
 
-
 export async function HeroSection() {
   const gitHubStars = await getGitHubStars()
+  const t = await getTranslations('Landing')
+  const localizedSiteConfig = getSiteConfig(t)
 
   return (
     <section
@@ -47,7 +49,7 @@ export async function HeroSection() {
       <div className="container flex flex-col items-center gap-6 text-center">
         {gitHubStars ? (
           <Link
-            href={siteConfig.links.github}
+            href={localizedSiteConfig.links.github}
             target="_blank"
             rel="noreferrer"
             className="z-10"
@@ -58,24 +60,25 @@ export async function HeroSection() {
               className="rounded-md px-3.5 py-1.5 text-sm transition-all duration-1000 ease-out hover:opacity-80 md:text-base md:hover:-translate-y-2"
             >
               <Icons.gitHub className="mr-2 size-3.5" aria-hidden="true" />
-              {gitHubStars} Stars on GitHub
+              {t('hero.github_stars', { stars: gitHubStars, defaultValue: `${gitHubStars} Stars on GitHub` })}
             </Badge>
             <span className="sr-only">GitHub</span>
           </Link>
         ) : null}
         <h1 className="animate-fade-up font-urbanist text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
           <Balancer>
-            Fast-Track Your Business Launch with{" "}
+            {t('hero.heading_1', { defaultValue: 'Fast-Track Your Business Launch with' })}{" "}
             <span className="bg-gradient-to-r from-pink-600 to-purple-400 bg-clip-text font-extrabold text-transparent">
-              SaaSy Land
+              {localizedSiteConfig.name}
             </span>
           </Balancer>
         </h1>
 
         <h3 className="max-w-2xl animate-fade-up text-muted-foreground sm:text-xl sm:leading-8">
           <Balancer>
-            Your shortcut to startup success. The ultimate, modern, open-source
-            Next.js template, with everything you need set up and ready to use.
+            {t('hero.subheading', { 
+              defaultValue: 'Your shortcut to startup success. The ultimate, modern, open-source Next.js template, with everything you need set up and ready to use.'
+            })}
           </Balancer>
         </h3>
 
@@ -87,17 +90,17 @@ export async function HeroSection() {
               "transition-all duration-1000 ease-out md:hover:-translate-y-2"
             )}
           >
-            Get Started
+            {t('hero.get_started_button', { defaultValue: 'Get Started' })}
           </Link>
 
           <Link
-            href={siteConfig.links.github}
+            href={localizedSiteConfig.links.github}
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "transition-all duration-1000 ease-out md:hover:-translate-y-2"
             )}
           >
-            See on GitHub
+            {t('hero.github_button', { defaultValue: 'See on GitHub' })}
           </Link>
         </div>
       </div>

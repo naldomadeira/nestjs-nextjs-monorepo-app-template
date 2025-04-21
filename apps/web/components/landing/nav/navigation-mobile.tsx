@@ -3,9 +3,8 @@
 import * as React from "react"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
+import { useTranslations } from "next-intl"
 import type { NavItem } from "@/types/landing"
-
-import { siteConfig } from "@/config/site"
 
 import { cn } from '@repo/shadcn/lib/utils';
 
@@ -49,13 +48,14 @@ function MobileLink({
 export function NavigationMobile({ navItems }: NavigationMobileProps) {
   const segment = useSelectedLayoutSegment()
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
-
+  const t = useTranslations('Landing')
+  
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild className="transition-all duration-300 ease-in-out">
         <Button variant="navbarIcon" size="icon" className="md:hidden">
           <Icons.menuToggle className="size-5" aria-hidden="true" />
-          <span className="sr-only">Toggle Menu</span>
+          <span className="sr-only">{t('navigation.toggle_menu', { defaultValue: 'Toggle Menu' })}</span>
         </Button>
       </SheetTrigger>
       <SheetContent
@@ -70,9 +70,9 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
           >
             <Icons.rocket className="mr-2 size-8" aria-hidden="true" />
             <span className="text-2xl font-bold leading-none tracking-wide">
-              {siteConfig.name}
+              {t('siteConfig.name')}
             </span>
-            <span className="sr-only">Home</span>
+            <span className="sr-only">{t('navigation.home', { defaultValue: 'Home' })}</span>
           </Link>
         </div>
         <div className="flex flex-col gap-4 pl-16 text-xl font-medium leading-none tracking-wide">

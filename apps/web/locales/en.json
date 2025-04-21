@@ -71,5 +71,298 @@
     "dashboard_link": "Dashboard",
     "user_profile_link": "Manage your account",
     "sign_out": "Sign out"
+  },
+  "Landing": {
+    "siteConfig": {
+      "name": "SaaSy Land",
+      "description": "An open-source starter for Next.js 14 full-stack projects with advanced authentication and several database configurations. The aim of this project is to provide a solid foundation for faster building and launching SaaS products, marketing sites, blogs, and more."
+    },
+    "profile": {
+      "account": "Account",
+      "settings": "Settings",
+      "signout": "Sign out"
+    },
+    "navItems": {
+      "about": "About",
+      "features": "Features",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "docs": "Docs",
+      "blog": "Blog"
+    },
+    "navItemsFooter": {
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "careers": "Careers"
+      },
+      "support": {
+        "title": "Support",
+        "docs": "Docs",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "inspiration": {
+        "title": "Inspiration",
+        "shadcn": "Shadcn",
+        "taxonomy": "Taxonomy",
+        "skateshop": "Skateshop",
+        "acme": "Acme Corp"
+      }
+    },
+    "features": {
+      "authentication": {
+        "title": "Advanced authentication",
+        "description": "Secure user access with robust authentication features for your application, such as email verification, password reset, magic links and OAuth providers. Powered by Next-Auth."
+      },
+      "database": {
+        "title": "Powerful database connection",
+        "description": "Leverage the strength of a serverless database for efficient data management and lightning-fast content delivery."
+      },
+      "blog": {
+        "title": "Markdown and MDX-powered blog",
+        "description": "Modern, lightweight, convenient, and SEO-friendly blogging support. Powered by Contentlayer."
+      },
+      "payments": {
+        "title": "Stripe payments integration",
+        "description": "Simply add your products or services, define prices, and start selling online with this fully functional implementation."
+      },
+      "emails": {
+        "title": "Transactional email support",
+        "description": "Ensure relaibel email communication for essential updates and notifications. Powered by Resend and React Email."
+      }
+    },
+    "techStack": {
+      "next": "Next",
+      "authJs": "AuthJs",
+      "drizzle": "Drizzle",
+      "prisma": "Prisma",
+      "planetScale": "PlanetScale",
+      "neon": "Neon",
+      "resend": "Resend",
+      "stripe": "Stripe"
+    },
+    "pricing": {
+      "basic": {
+        "name": "Basic",
+        "description": "Perfect for when you are just getting started",
+        "features": [
+          "Up to 5 projects",
+          "Basic analytics and reporting"
+        ],
+        "limitations": [
+          "No custom branding",
+          "No commercial license",
+          "Limited customer support",
+          "No access to new features"
+        ]
+      },
+      "standard": {
+        "name": "Standard",
+        "description": "Perfect for when you are starting to grow",
+        "features": [
+          "Up to 10 projects",
+          "Commercial license",
+          "Advanced analytics and reporting",
+          "Priority customer support",
+          "Exclusive training materials"
+        ],
+        "limitations": [
+          "No custom branding",
+          "Limited customer support"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "description": "Perfect for seriously scaling your business",
+        "features": [
+          "Unlimited projects",
+          "Commercial licence",
+          "Real-time analytics and reporting",
+          "Exclusive training materials",
+          "24/7 custommer support",
+          "Personal branding"
+        ],
+        "limitations": []
+      }
+    },
+    "faq": {
+      "what_is": {
+        "question": "What is {name}?",
+        "answer": "{name} is a modern, open sourced collection starter templates for Next.js 14 full-stack projects. Built with Tailwind CSS, ShadCn, Next-Auth and several databases. Branches contain stand-alone set ups, including for serverless databases like PostgreSQL with Neon and MySQL with PlanetScale, Drizzle ORM, Prisma ORM v.5, but also MongoDB and Supabase."
+      },
+      "what_is_included": {
+        "question": "What is included?",
+        "answer": "Several configuration options are available. Depending on which repo branch you clone and decide to use, you will have a full-stack project with advanced authentication (e.g., email verification, password reset, magic link sign in, OAuth social sign in with Google and Github), synchronized with a database of your choosing. On top of that, you will have a fully functional landing page, which is extremally easy to customize, Markdown and MDX-powered blog, documentation pages, Stripe payments integration, and more."
+      },
+      "why_use": {
+        "question": "Why would I want to use {name}?",
+        "answer": "Since everything is professionally pre-configured and up to the latest standards, you save a tremendous amount of time and effort, which you can now spend focusing on what really matters - building your own, unique product. And it's completely free!"
+      },
+      "pricing_confusion": {
+        "question": "I am confused with pricing",
+        "answer": "Our product is completely free and open source. The pricing section is there to serve as an example of how you could set it up for your own SaaS product. We have no plans and no intentions to make this a paid product."
+      },
+      "easy_to_use": {
+        "question": "Is it easy to use? How do I get started?",
+        "answer": "{name} is extremely easy to use. You can get started by cloning a GitHub repo and following the documentation."
+      },
+      "support": {
+        "question": "Can I get help and support?",
+        "answer": "Feel free to email us with any questions, or start a discussion on GitHub. While we are always happy to help, please keep in mind that this is a free product, which we develop out of passion in our free time and hence, we cannot guarantee any response times."
+      },
+      "maintenance": {
+        "question": "Is the product actively maintained?",
+        "answer": "{name} is currently under active development. We are working on adding new features and improving the existing ones. We are also working on improving the documentation and adding more examples. Stay tuned! You may also consider signing up for our newsletter to get notified about new major releases. We will not spam you, we promise!"
+      }
+    },
+    "testimonials": {
+      "time_saving": {
+        "title": "Saved me a lot of time",
+        "body": "SaaSy Land saved us a significant amount of time and resources. We were able to focus on our core business, thanks to its powerful features.",
+        "name": "Derrick Bowman",
+        "role": "CEO at PixelCraft Studios"
+      },
+      "perfect_mvp": {
+        "title": "Perfect for MVPs",
+        "body": "For startups, SaaSy Land is the perfect choice for building Minimum Viable Products (MVPs). It offers a wide range of pre-designed components and layouts that are essential for a quick go-to-market strategy. It helped us save months of development time and resources. SaaSy Land gave us a competitive edge and allowed us to test our ideas in the real world faster.",
+        "name": "Troy Castillo",
+        "role": "Software Architect at NexaCorp"
+      },
+      "implementation": {
+        "title": "Incredible implementation quality!",
+        "body": "From the initial concept to the final product, the implementation quality was truly incredible. Kudos to the entire team for their dedication and expertise.",
+        "name": "Darren Miller",
+        "role": "Senior Developer at Unicorn Labs"
+      },
+      "support": {
+        "title": "Outstanding customer support",
+        "body": "The customer support from SaaSy Land is exceptional. They've been incredibly responsive and helpful throughout our journey. I just love their product and the way they handle it.",
+        "name": "Beth Craig",
+        "role": "CTO at Web Wizardry Inc."
+      },
+      "game_changer": {
+        "title": "A game-changer for startups",
+        "body": "Love love LOVE this product! It's changed my life to the point, where I can't imagine starting a new project without it anymore. Wholeheartedly recommended.",
+        "name": "Jenny Black",
+        "role": "Product Manager at StellarSoft"
+      },
+      "speechless": {
+        "title": "Speechless!",
+        "body": "It's a treasure trove of well-designed, responsive elements that significantly accelerated our development process. This enabled us to create complex features and interactive elements with ease. SaaSy Land not only saves us time but also ensures a consistent and professional look for our project. We couldn't be happier with the results.",
+        "name": "Kevin Hamilton",
+        "role": "Junior Developer at Purple Dash"
+      },
+      "recommendation": {
+        "title": "Cannot recommend it enough",
+        "body": "If you're a startup, SaaSy Land is a perfect choice. It offers the tools you need to create a top-notch product without the hassle.",
+        "name": "Alfredo Bradley",
+        "role": "Software Developer at PixelMiners"
+      },
+      "code_quality": {
+        "title": "Exceptional code quality",
+        "body": "Implementation quality at SaaSy Land is exceptional. It made creating complex features a breeze and saved us from spending a lot of time and money on development.",
+        "name": "Michelle Jensen",
+        "role": "CEO at DevXpert Digital"
+      },
+      "revolutionized": {
+        "title": "Revolutionized Our Web Development Process",
+        "body": "Our experience with SaaSy Land has been nothing short of transformational. This platform has revolutionized our web development process, making it faster and more efficient than ever before. The features, tools, and support provided have exceeded our expectations, and we couldn't be happier with the results.",
+        "name": "Rafał Kowalski",
+        "role": "Product Owner at WebTech Co."
+      }
+    },
+    "footer": {
+      "newsletter_text": "Join our newsletter today to stay up to date on features and important releases",
+      "built_by_text": "Built in public by",
+      "license_text": "Freely available under the MIT license. Enjoy :)"
+    },
+    "navigation": {
+      "toggle_menu": "Toggle Menu",
+      "home": "Home",
+      "get_started": "Get Started"
+    },
+    "hero": {
+      "github_stars": "{stars} Stars on GitHub",
+      "heading_1": "Fast-Track Your Business Launch with",
+      "subheading": "Your shortcut to startup success. The ultimate, modern, open-source Next.js template, with everything you need set up and ready to use.",
+      "get_started_button": "Get Started",
+      "github_button": "See on GitHub"
+    },
+    "benefits": {
+      "heading_1": "Why",
+      "heading_2": "Should You Care?",
+      "subheading": "Your competitors are already using {name} and similar products, gaining time and competitive advantage. Don't get left behind!",
+      "card1": {
+        "description": "Incredible Time Saver",
+        "title_1": "Get a Head Start",
+        "title_2": "on Your Competitors",
+        "content": "Since everything is professionally configured and up to standards, you save a tremendous amount of time and effort, which you can now spend focusing on what really matters - core functionality, unique to your business.",
+        "stats_title_1": "Last 7 Days Website Visits",
+        "stats_subtitle_1": "23% Increase from Last Week",
+        "stats_title_2": "Last 14 Days Website Visits",
+        "stats_subtitle_2": "17% Increase from Last Week"
+      },
+      "card2": {
+        "description": "Latest and Greatest in Tech",
+        "title": "Take Advantage of Modern Technologies",
+        "content": "We are constantly updating our templates to take advantage of the latest and greatest technologies, so you can be sure that your website is always up to date and as fast as possible.",
+        "image_alt": "illustration"
+      },
+      "card3": {
+        "description": "High Quality Implementation",
+        "title": "Know Everything Works As Expected",
+        "content": "We spent countless hours researching, exploring docs and testing the best way to implement the most important features. We have done the hard work so you don't have to.",
+        "image_alt": "illustration"
+      },
+      "card4": {
+        "description": "Flexibility and Support",
+        "title_1": "Easily Customize",
+        "title_2": "Every Single Detail",
+        "content": "With the help of our detailed documentation, you can now easily customize every single detail of the template. Should you need any help, we are a message away.",
+        "image_alt": "illustration"
+      }
+    },
+    "features_section": {
+      "heading_1": "Discover Our",
+      "heading_2": "Wholesome Features",
+      "subheading": "Take advantage of a fully authentication, data storage, payments, emails, and more available to you instantly."
+    },
+    "pricing_section": {
+      "heading_1": "It's",
+      "heading_2": "Free Forever!",
+      "subheading": "{name} is completely free and open source. The pricing section is there to serve as an example of how you could set it up for your own SaaS product. We have no plans and no intentions to make this a paid product.",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "per_month": "/ month",
+      "yearly_charge": "You will be charged ${price} once a year, starting today",
+      "purchase_button": "Purchase"
+    },
+    "testimonials_section": {
+      "heading_1": "Join a Growing",
+      "heading_2": "Team of",
+      "heading_3": "Happy Users",
+      "subheading": "See what our customers are saying about us."
+    },
+    "faq_section": {
+      "heading_1": "Frequently Asked",
+      "heading_2": "Questions",
+      "subheading_1": "Find the answers to the most common questions about our product. Feel free to",
+      "email_link": "email us",
+      "subheading_2": "if you still couldn't find what you were looking for."
+    },
+    "contact_section": {
+      "heading_1": "Let's",
+      "heading_2": "Get in Touch",
+      "subheading": "Feel free to email us with any questions you might have. While we are always happy to help, please keep in mind that this is a free product and we cannot guarantee any response times. We would also love to know your feedback!"
+    },
+    "newsletter_section": {
+      "heading_1": "Sign Up to",
+      "heading_2": "Our Newsletter",
+      "subheading": "Never miss a thing with our newsletter. We will send you updates on major released or changes to the product. We will never spam you."
+    }
   }
 }

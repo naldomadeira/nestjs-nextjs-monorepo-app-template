@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import Balancer from "react-wrap-balancer"
+import { useTranslations } from "next-intl"
 
-import { siteConfig } from "@/config/site"
-import { pricingPlans } from "@/data/pricing-plans"
+import { getSiteConfig } from "@/config/site"
+import { getPricingPlans } from "@/data/pricing-plans"
 
 import { cn } from '@repo/shadcn/lib/utils';
 
@@ -21,6 +22,10 @@ import { Icons } from "@/components/icons"
 
 export function PricingSection(): React.JSX.Element {
   const [yearlyBilling, setYearlyBilling] = React.useState<boolean>(false)
+  const t = useTranslations('Landing')
+  const localizedSiteConfig = getSiteConfig(t)
+  const localizedPricingPlans = getPricingPlans(t)
+  
   return (
     <section
       id="pricing-section"
@@ -31,40 +36,40 @@ export function PricingSection(): React.JSX.Element {
         <div className="flex flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              It&apos;s{" "}
+              {t('pricing_section.heading_1', { defaultValue: 'It\'s' })}{" "}
               <span className="bg-gradient-to-r from-pink-600 to-purple-400 bg-clip-text text-transparent">
-                Free Forever!
+                {t('pricing_section.heading_2', { defaultValue: 'Free Forever!' })}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-2xl text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.name} is completely free and open source. The pricing
-              section is there to serve as an example of how you could set it up
-              for your own SaaS product. We have no plans and no intentions to
-              make this a paid product.
+              {t('pricing_section.subheading', { 
+                name: localizedSiteConfig.name,
+                defaultValue: '{name} is completely free and open source. The pricing section is there to serve as an example of how you could set it up for your own SaaS product. We have no plans and no intentions to make this a paid product.'
+              })}
             </Balancer>
           </h3>
         </div>
 
         <div className="my-4 flex items-center justify-center gap-4 text-lg">
-          <span>Monthly</span>
+          <span>{t('pricing_section.monthly', { defaultValue: 'Monthly' })}</span>
           <Switch
             checked={yearlyBilling}
             onCheckedChange={() => setYearlyBilling((prev) => !prev)}
             role="switch"
             aria-label="switch-year"
           />
-          <span>Annual</span>
+          <span>{t('pricing_section.annual', { defaultValue: 'Annual' })}</span>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3 lg:gap-6">
-          {pricingPlans.map((plan) => (
+          {localizedPricingPlans.map((plan) => (
             <Card
               key={plan.name}
               className={cn(
                 "flex flex-col transition-all duration-1000 ease-out hover:opacity-80 md:hover:-translate-y-3",
-                plan.name === "Standard" &&
+                plan.id === "standard" &&
                   "border-pink-600/60 bg-gradient-to-r from-pink-600/10 to-purple-400/10"
               )}
             >
@@ -93,18 +98,17 @@ export function PricingSection(): React.JSX.Element {
                     {yearlyBilling && <span>{plan.prices.yearly / 12}</span>}
 
                     <span className="flex items-end text-lg font-semibold md:items-center md:text-base lg:items-end lg:text-lg">
-                      / month
+                      {t('pricing_section.per_month', { defaultValue: '/ month' })}
                     </span>
                   </div>
 
                   {yearlyBilling && plan.prices.monthly > 0 && (
                     <p className="text-xs font-bold text-muted-foreground">
                       <Balancer>
-                        You will be charged{" "}
-                        <span className="text-foreground">
-                          ${plan.prices.yearly}
-                        </span>{" "}
-                        once a year, starting today
+                        {t('pricing_section.yearly_charge', { 
+                          price: plan.prices.yearly,
+                          defaultValue: 'You will be charged ${price} once a year, starting today'
+                        })}
                       </Balancer>
                     </p>
                   )}
@@ -138,7 +142,7 @@ export function PricingSection(): React.JSX.Element {
                   variant="outline"
                   className="h-10 w-full border bg-gradient-to-br from-pink-600/20 to-purple-400/20 font-bold tracking-wide"
                 >
-                  Purchase
+                  {t('pricing_section.purchase_button', { defaultValue: 'Purchase' })}
                 </Button>
               </CardContent>
             </Card>
