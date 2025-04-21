@@ -6,6 +6,7 @@
   "scripts": {
     "add:api": "pnpm add --filter=api",
     "add:web": "pnpm add --filter=web",
+    "build:api": "turbo run build --filter=api",
     "build": "turbo build",
     "changeset": "changeset",
     "clear:modules": "npx npkill",
