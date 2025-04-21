@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '30mb',
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+      },
+    ];
+  },
 };
 
 
