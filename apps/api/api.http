@@ -1,0 +1,174 @@
+###
+@baseUrl = http://localhost:3001
+@username = naldomadeira@gmail.com
+@password = Brasil20#
+###
+
+### SWAGGER
+GET {{baseUrl}}/api-docs
+
+#################################################################
+# AuthController: Sign Up
+#################################################################
+POST {{baseUrl}}/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "TestPassword123",
+  "username": "testuser",
+  "name": "Test User"
+}
+
+#################################################################
+# AuthController: Sign In
+#################################################################
+# @name loginapi
+POST {{baseUrl}}/api/auth/sign-in
+Content-Type: application/json
+
+{
+  "identifier": "{{username}}",
+  "password": "{{password}}",
+  "ip": "localhost:3000",
+  "location": "Local/Brazil",
+  "device_name": "Chrome Browser",
+  "device_os": "Windows",
+  "device_type": "desktop",
+  "browser": "Chrome",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+}
+
+###
+@token = {{loginapi.response.body.tokens.access_token}}
+@sessionToken = {{loginapi.response.body.tokens.session_token}}
+
+@userId = {{loginapi.response.body.data.id}}
+###
+
+#################################################################
+# AuthController: Sign Out
+#################################################################
+# @name signoutapi
+POST {{baseUrl}}/api/auth/sign-out
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "session_token": "{{sessionToken}}"
+}
+
+
+#################################################################
+# AuthController: Sign Out All Devices
+#################################################################
+POST {{baseUrl}}/api/auth/sign-out-allDevices
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "userId": "3ade200a-8ba7-4c88-bb23-8a2a643291fc"
+}
+
+#################################################################
+# AuthController: Get Sessions
+#################################################################
+GET {{baseUrl}}/api/auth/sessions/{{userId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#################################################################
+# AuthController: Get Single Session
+#################################################################
+GET {{baseUrl}}/api/auth/session/1b30c9b9-b34b-45bc-ab90-f627835f2099
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+#################################################################
+# AuthController: Confirm Email
+#################################################################
+PATCH {{baseUrl}}/api/auth/confirm-email
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "test@example.com",
+  "token": "123456"
+}
+
+#################################################################
+# AuthController: Forgot Password
+#################################################################
+PATCH {{baseUrl}}/api/auth/forgot-password
+Content-Type: application/json
+{
+  "identifier": "{{username}}"
+}
+
+#################################################################
+# AuthController: Reset Password
+#################################################################
+PATCH {{baseUrl}}/api/auth/reset-password
+Content-Type: application/json
+
+{
+  "identifier": "test@example.com",
+  "resetToken": "abcdef", 
+  "newPassword": "NewTestPassword123"
+}
+
+#################################################################
+# AuthController: Change Password
+#################################################################
+PATCH {{baseUrl}}/api/auth/change-password
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+
+{
+  "identifier": "{{username}}",
+  "password": "{{password}}",
+  "newPassword": "ChangedPassword123"
+}
+
+#################################################################
+# AuthController: Refresh Token
+#################################################################
+PATCH {{baseUrl}}/api/auth/refresh-token
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+
+{
+  "user_id": "replace-with-user-id",
+  "session_token": "replace-with-session-token"
+}
+
+#################################################################
+# UsersController: Get All Users
+#################################################################
+GET {{baseUrl}}/api/users
+Content-Type: application/json
+
+#################################################################
+# HealthController: General Health
+#################################################################
+GET {{baseUrl}}/health
+Content-Type: application/json
+
+#################################################################
+# HealthController: Database Health
+#################################################################
+GET {{baseUrl}}/api/health/database
+Content-Type: application/json
+
+#################################################################
+# HealthController: Disk Health
+#################################################################
+GET {{baseUrl}}/api/health/disk
+Content-Type: application/json
+
+#################################################################
+# HealthController: Memory Health
+#################################################################
+GET {{baseUrl}}/api/health/memory
+Content-Type: application/json
+
