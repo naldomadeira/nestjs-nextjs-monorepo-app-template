@@ -1,7 +1,10 @@
-import { NextConfig } from 'next';
+import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: false,
+  turbopack: {
+  },
   experimental: {
     viewTransition: true,
     authInterrupts: true,
@@ -9,6 +12,7 @@ const nextConfig = {
       bodySizeLimit: '30mb',
     },
   },
-} satisfies NextConfig;
+};
 
-export default nextConfig;
+
+export default createNextIntlPlugin('./lib/i18n.ts')(nextConfig);

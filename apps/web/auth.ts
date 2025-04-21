@@ -1,14 +1,12 @@
 import { env } from '@/lib';
 import { authorizeSignIn } from '@/server/auth.server';
-import NextAuth from 'next-auth';
+import NextAuth, {
+  type NextAuthConfig,
+  type NextAuthResult,
+} from "next-auth";
 import Credentials from 'next-auth/providers/credentials';
-export const {
-  handlers,
-  signIn,
-  signOut,
-  auth,
-  unstable_update: update,
-} = NextAuth({
+
+const authOptions: NextAuthConfig =  {
   pages: {
     signIn: '/auth/sign-in',
   },
@@ -112,4 +110,13 @@ export const {
     updateAge: 86400 * 5, //5 days,
   },
   secret: env.AUTH_SECRET,
-});
+};
+
+const result = NextAuth(authOptions);
+
+// explicitamente tipando cada export
+export const handlers: NextAuthResult["handlers"]    = result.handlers;
+export const auth:     NextAuthResult["auth"]        = result.auth;
+export const signIn:   NextAuthResult["signIn"]      = result.signIn;
+export const signOut:  NextAuthResult["signOut"]     = result.signOut;
+export const update:   NextAuthResult["unstable_update"] = result.unstable_update;
