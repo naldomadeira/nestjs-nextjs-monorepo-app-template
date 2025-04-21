@@ -30,7 +30,7 @@ function MobileLink({
   disabled,
   segment,
   setIsOpen,
-}: MobileLinkProps): React.JSX.Element {
+}: MobileLinkProps) {
   return (
     <Link
       href={href}

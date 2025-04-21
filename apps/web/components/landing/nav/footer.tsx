@@ -10,9 +10,8 @@ import { buttonVariants } from '@repo/shadcn/button';
 import { NewsletterSignUpForm } from "@/components/landing/forms/newsletter-signup-form"
 import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/common/theme-toggle"
-import { JSX } from "react";
 
-export function Footer(): JSX.Element {
+export function Footer() {
   return (
     <footer
       id="footer"

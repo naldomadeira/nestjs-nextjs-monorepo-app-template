@@ -9,7 +9,6 @@ import { cn } from '@repo/shadcn/lib/utils';
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@repo/shadcn/navigation-menu"
@@ -18,18 +17,20 @@ interface NavigationProps {
   navItems: NavItem[]
 }
 
-export function Navigation({ navItems }: NavigationProps): React.JSX.Element {
+export function Navigation({ navItems }: NavigationProps) {
   return (
     <NavigationMenu className="hidden transition-all duration-300 ease-in-out md:flex">
       <NavigationMenuList>
         {navItems.map((item) => (
-          <NavigationMenuItem key={item.title} asChild>
-            <Link href={item.href} legacyBehavior passHref>
-              <NavigationMenuLink
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
-              >
-                {item.title}
-              </NavigationMenuLink>
+          <NavigationMenuItem asChild key={item.title}>
+             <Link
+              href={item.href}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent"
+              )}
+            >
+              {item.title}
             </Link>
           </NavigationMenuItem>
         ))}

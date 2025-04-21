@@ -7,9 +7,8 @@ import { NewsletterSection } from "@/components/landing/sections/newsletter-sect
 import { PricingSection } from "@/components/landing/sections/pricing-section"
 import { TechSection } from "@/components/landing/sections/tech-section"
 import { TestimonialsSection } from "@/components/landing/sections/testimonials-section"
-import { JSX } from "react"
 
-export default function LandingPage(): JSX.Element {
+export default function LandingPage() {
   return (
     <div className="grid w-full grid-cols-1 items-center justify-center gap-16 md:gap-32">
       <HeroSection />

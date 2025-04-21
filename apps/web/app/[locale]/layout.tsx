@@ -50,7 +50,6 @@ const RootLayout = async ({
   children: ReactNode;
   params: Promise<{ locale: string }>;
 }>) => {
-  console.log('RootLayout');
   const { locale } = await params;
   
   if (!routing.locales.includes(locale)) {

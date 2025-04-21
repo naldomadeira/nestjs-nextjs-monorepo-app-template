@@ -15,7 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@repo/shadcn/dropdown-menu"
-// import { SignOutButton } from "@/components/auth/signout-button"
+import { SignOutButton } from "@/components/auth/signout-button"
 import { Icons } from "@/components/icons"
 import { Navigation } from "@/components/landing/nav/navigation"
 import { NavigationMobile } from "@/components/landing/nav/navigation-mobile"
@@ -98,9 +98,9 @@ export async function Header(): Promise<JSX.Element> {
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  {/* <DropdownMenuItem asChild>
+                  <DropdownMenuItem asChild>
                     <SignOutButton />
-                  </DropdownMenuItem> */}
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
