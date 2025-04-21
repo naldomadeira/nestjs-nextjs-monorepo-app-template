@@ -3,6 +3,7 @@ import { ThemeProvider } from '@repo/shadcn/themes-provider';
 import { SessionProvider } from 'next-auth/react';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { ReactNode } from 'react';
+import { Toaster } from '@repo/shadcn/sonner';
 
 type ProvidersProps = {
   children: ReactNode;
@@ -18,6 +19,7 @@ const Providers = async ({ children }: Readonly<ProvidersProps>) => {
     >
       <SessionProvider session={session}>
         <NuqsAdapter>{children}</NuqsAdapter>
+        <Toaster />
       </SessionProvider>
     </ThemeProvider>
   );
