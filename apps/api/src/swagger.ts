@@ -9,5 +9,5 @@ export const swagger = async (app: NestExpressApplication) => {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api-docs', app, document);
+  SwaggerModule.setup('/', app, document);
 };

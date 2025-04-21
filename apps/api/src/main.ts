@@ -7,6 +7,7 @@ const main = async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     bufferLogs: true,
   });
+
   await bootstrap(app);
 };
 

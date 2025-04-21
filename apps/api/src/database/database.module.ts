@@ -14,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         if (!dbType) {
           return {
             type: 'sqlite',
-            database: 'db.sqlite',
+            database: ':memory:',
             entities: [__dirname + '/../**/*.entity{.ts,.js}'],
             synchronize: true,
           };

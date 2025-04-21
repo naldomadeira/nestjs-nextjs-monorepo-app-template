@@ -47,6 +47,8 @@ export const bootstrap = async (app: NestExpressApplication): Promise<void> => {
     prefix: '/assets',
   });
 
+  app.enableShutdownHooks();
+
   // CORS setup allowing specific origins and methods
   app.enableCors({
     credentials: true,
@@ -71,9 +73,11 @@ export const bootstrap = async (app: NestExpressApplication): Promise<void> => {
   );
 
   // Swagger setup to enable API documentation
-  if (configService.get('NODE_ENV') !== 'production') {
-    await swagger(app);
-  }
+  // if (configService.get('NODE_ENV') !== 'production') {
+  //   await swagger(app);
+  // }
+
+  await swagger(app);
 
   // Start the application
   await app.listen(configService.get('PORT')!, () => {
