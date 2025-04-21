@@ -33,6 +33,7 @@ import crypto from 'crypto';
 import { Repository } from 'typeorm';
 @Injectable()
 export class AuthService {
+  private sendEmailToggle = false;
   constructor(
     private readonly jwtService: JwtService,
     private readonly config: ConfigService<Env>,
@@ -40,7 +41,9 @@ export class AuthService {
     @InjectRepository(Session)
     private readonly SessionRepository: Repository<Session>,
     private readonly mailService: MailService,
-  ) {}
+  ) {
+    this.sendEmailToggle = this.config.get('SEND_EMAIL_TOGGLE') === 'true';
+  }
 
   //Generate Tokens
   async generateTokens(user: User): Promise<AuthTokensInterface> {
@@ -120,14 +123,29 @@ export class AuthService {
         Date.now() + 1000 * 60 * 60 * 24, // 1 day
       ),
     });
-    await this.mailService.sendEmail({
-      to: [user.email],
-      subject: 'Confirm your email',
-      html: RegisterMail({
-        name: user.name,
-        code: emailVerificationToken,
-      }),
-    });
+    if (this.sendEmailToggle) {
+      await this.mailService.sendEmail({
+        to: [user.email],
+        subject: 'Confirm your email',
+        html: RegisterMail({
+          name: user.name,
+          code: emailVerificationToken,
+        }),
+      });
+    } else {
+      console.log(
+        `Email sent to ${user.email} with code ${emailVerificationToken}`,
+        {
+          to: [user.email],
+          subject: 'Confirm your email',
+          html: RegisterMail({
+            name: user.name,
+            code: emailVerificationToken,
+          }),
+        },
+      );
+    }
+
     return { data: user };
   }
 

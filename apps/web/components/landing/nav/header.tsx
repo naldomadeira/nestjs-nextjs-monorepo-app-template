@@ -112,12 +112,12 @@ export async function Header(): Promise<JSX.Element> {
               </DropdownMenu>
             ) : (
               <Link
-                aria-label={t('navItems.get_started', { defaultValue: 'Get Started' })}
-                href="/signup"
+                aria-label={t('navigation.get_started', { defaultValue: 'Get Started' })}
+                href="/auth/sign-up"
                 className={cn(buttonVariants({ size: "sm" }), "ml-2")}
               >
-                {t('navItems.get_started', { defaultValue: 'Get Started' })}
-                <span className="sr-only">{t('navItems.get_started', { defaultValue: 'Get Started' })}</span>
+                {t('navigation.get_started', { defaultValue: 'Get Started' })}
+                <span className="sr-only">{t('navigation.get_started', { defaultValue: 'Get Started' })}</span>
               </Link>
             )}
           </nav>
