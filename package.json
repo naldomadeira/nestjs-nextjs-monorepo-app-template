@@ -17,6 +17,7 @@
     "format:check": "prettier . --check",
     "lint": "turbo lint",
     "start": "turbo start",
+    "clean:node-modules": "rm -rf node_modules pnpm-lock.yaml package-lock.json yarn.lock && find . -type d -name 'node_modules' -prune -exec rm -rf '{}' + && find . -type f \\( -name 'pnpm-lock.yaml' -o -name 'package-lock.json' -o -name 'yarn.lock' \\) -delete",
     "test": "turbo test"
   },
   "config": {
@@ -36,6 +37,7 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-packagejson": "^2.5.6",
     "prettier-plugin-tailwindcss": "^0.6.9",
+    "rimraf": "^6.0.1",
     "turbo": "^2.4.4",
     "typescript": "5.8.3",
     "zod": "^3.24.1"
