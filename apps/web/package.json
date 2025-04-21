@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@repo-template/eslint-config": "workspace:*",
-    "@repo/ts-config": "workspace:*",
+    "@repo-template/ts-config": "workspace:*",
     "@repo/utils": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

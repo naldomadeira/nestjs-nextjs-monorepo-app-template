@@ -120,7 +120,7 @@ importers:
       '@repo-template/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/ts-config':
+      '@repo-template/ts-config':
         specifier: workspace:*
         version: link:../../packages/ts-config
       '@swc/cli':
@@ -229,7 +229,7 @@ importers:
       '@repo-template/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/ts-config':
+      '@repo-template/ts-config':
         specifier: workspace:*
         version: link:../../packages/ts-config
       '@repo/utils':
@@ -377,7 +377,7 @@ importers:
       '@repo-template/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@repo/ts-config':
+      '@repo-template/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       '@tabler/icons-react':
@@ -422,7 +422,7 @@ importers:
       '@react-email/components':
         specifier: ^0.0.36
         version: 0.0.36(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@repo/ts-config':
+      '@repo-template/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       '@types/react':
@@ -442,7 +442,7 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@repo/ts-config':
+      '@repo-template/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       dayjs:

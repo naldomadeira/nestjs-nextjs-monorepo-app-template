@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/ts-config/nestjs.json",
+  "extends": "@repo-template/ts-config/nestjs.json",
   "compilerOptions": {
     "strict": true,
     "strictNullChecks": true,
