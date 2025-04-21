@@ -20,8 +20,15 @@ export class User extends Base {
   @Column({ type: 'varchar', nullable: true })
   emailVerificationToken: string | null;
 
-  @Column({ type: 'timestamp', nullable: true })
-  emailVerificationTokenExpires: Date | null;
+  @Column({
+    type: 'varchar',
+    nullable: true,
+    transformer: {
+      to: (value: Date | null) => (value ? value.toISOString() : null),
+      from: (value: string | null) => (value ? new Date(value) : null),
+    },
+  })
+  emailVerificationTokenExpires: Date | null; // TODO: Review if string is the best approach
 
   @Column({ type: 'boolean', nullable: true, default: false })
   isEmailVerified: boolean;
@@ -29,8 +36,15 @@ export class User extends Base {
   @Column({ type: 'varchar', nullable: true })
   passwordResetToken: string | null;
 
-  @Column({ type: 'timestamp', nullable: true })
-  passwordResetTokenExpires: Date | null;
+  @Column({
+    type: 'varchar',
+    nullable: true,
+    transformer: {
+      to: (value: Date | null) => (value ? value.toISOString() : null),
+      from: (value: string | null) => (value ? new Date(value) : null),
+    },
+  })
+  passwordResetTokenExpires: Date | null; // TODO: Review if string is the best approach
 
   @Column({ type: 'varchar', default: 'email' })
   provider: string;

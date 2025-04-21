@@ -14,6 +14,7 @@ export const EnvSchema = z.object({
   ACCESS_TOKEN_EXPIRATION: z.string().min(1).max(60),
   REFRESH_TOKEN_SECRET: z.string().min(10).max(128),
   REFRESH_TOKEN_EXPIRATION: z.string().min(1).max(365),
+  DB_TYPE: z.string().optional().nullable(),
   DB_HOST: z.string(),
   DB_PORT: z.string(),
   DB_USERNAME: z.string(),

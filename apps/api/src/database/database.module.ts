@@ -8,17 +8,30 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService<Env>) => ({
-        type: 'postgres',
-        host: config.get('DB_HOST'),
-        port: config.get('DB_PORT'),
-        username: config.get('DB_USERNAME'),
-        password: config.get('DB_PASSWORD'),
-        database: config.get('DB_NAME'),
-        autoLoadEntities: true,
-        synchronize: config.get('NODE_ENV') !== 'production',
-        logging: config.get('NODE_ENV') !== 'production',
-      }),
+      useFactory: (config: ConfigService<Env>) => {
+        const dbType = config.get('DB_TYPE');
+
+        if (!dbType) {
+          return {
+            type: 'sqlite',
+            database: 'db.sqlite',
+            entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+            synchronize: true,
+          };
+        }
+
+        return {
+          type: 'postgres',
+          host: config.get('DB_HOST'),
+          port: config.get('DB_PORT'),
+          username: config.get('DB_USERNAME'),
+          password: config.get('DB_PASSWORD'),
+          database: config.get('DB_NAME'),
+          autoLoadEntities: true,
+          synchronize: config.get('NODE_ENV') !== 'production',
+          logging: config.get('NODE_ENV') !== 'production',
+        };
+      },
     }),
   ],
 })
