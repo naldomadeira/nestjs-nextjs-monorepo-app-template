@@ -50,12 +50,12 @@ export const bootstrap = async (app: NestExpressApplication): Promise<void> => {
   app.enableShutdownHooks();
 
   // CORS setup allowing specific origins and methods
-  app.enableCors({
-    credentials: true,
-    // origin: configService.get('ALLOW_CORS_URL'),
-    origin: '*', // Permite todas origens (apenas para teste)
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  });
+  // app.enableCors({
+  //   credentials: true,
+  //   // origin: configService.get('ALLOW_CORS_URL'),
+  //   origin: '*', // Permite todas origens (apenas para teste)
+  //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  // });
 
   // Use custom logger for application logs
   app.useLogger(logger);
