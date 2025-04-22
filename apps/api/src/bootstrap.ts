@@ -56,6 +56,25 @@ export const bootstrap = async (app: NestExpressApplication): Promise<void> => {
   //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   // });
 
+  app.enableCors({
+    origin: '*', // ⚠️ Use um array com URLs específicas em produção
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+      'X-CSRF-Token',
+      'Accept-Version',
+      'Content-Length',
+      'Content-MD5',
+      'Date',
+      'X-Api-Version',
+    ],
+  });
+
   // Use custom logger for application logs
   app.useLogger(logger);
 
