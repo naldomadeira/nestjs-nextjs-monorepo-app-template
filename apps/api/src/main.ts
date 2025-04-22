@@ -1,20 +1,41 @@
-import { AppModule } from '@/app.module';
-import { bootstrap } from '@/bootstrap';
 import { NestFactory } from '@nestjs/core';
-import { NestExpressApplication } from '@nestjs/platform-express';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import serverlessExpress from '@vendia/serverless-express';
+import express from 'express';
+import { AppModule } from './app.module';
 
-const main = async () => {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    bufferLogs: true,
-  });
+let cachedServer;
 
-  await bootstrap(app);
+async function bootstrap() {
+  const expressApp = express();
+  const adapter = new ExpressAdapter(expressApp);
+  const app = await NestFactory.create(AppModule, adapter);
+  await app.init();
+  return serverlessExpress({ app: expressApp });
+}
+
+export const handler = async (event, context) => {
+  cachedServer = cachedServer ?? (await bootstrap());
+  return cachedServer(event, context);
 };
 
-main().catch((error) => {
-  console.log(error);
-  process.exit(1);
-});
+// import { AppModule } from '@/app.module';
+// import { bootstrap } from '@/bootstrap';
+// import { NestFactory } from '@nestjs/core';
+// import { NestExpressApplication } from '@nestjs/platform-express';
+
+// const main = async () => {
+//   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+//     bufferLogs: true,
+//   });
+
+//   await bootstrap(app);
+// };
+
+// main().catch((error) => {
+//   console.log(error);
+//   process.exit(1);
+// });
 
 // const server = express();
 
