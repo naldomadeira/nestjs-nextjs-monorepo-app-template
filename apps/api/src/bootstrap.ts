@@ -3,7 +3,6 @@ import { swagger } from '@/swagger';
 import { RequestMethod, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 
 /**
@@ -22,7 +21,7 @@ export const bootstrap = async (app: NestExpressApplication): Promise<void> => {
   const configService = app.get(ConfigService<Env>);
 
   // Set up security headers using helmet
-  app.use(helmet());
+  //app.use(helmet());
 
   // Global API prefix setup, excluding certain paths from the prefix
   app.setGlobalPrefix('api', {
