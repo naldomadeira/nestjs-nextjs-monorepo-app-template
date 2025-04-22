@@ -2,16 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "apps/api/vercel-handler.ts",
+      "src": "./vercel-handler.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "apps/api/vercel-handler.ts"
+      "dest": "./vercel-handler.js"
     }
   ],
-  "buildCommand": "pnpm --filter api build",
+  "buildCommand": "pnpm  build",
   "installCommand": "pnpm install"
 }
