@@ -2,14 +2,25 @@
   "version": 2,
   "builds": [
     {
-      "src": "./vercel-handler.ts",
+      "src": "src/vercel-handler.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "./vercel-handler.js"
+      "dest": "src/vercel-handler.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "OPTIONS",
+        "DELETE",
+        "HEAD",
+        "CONNECT",
+        "TRACE"
+      ]
     }
   ],
   "buildCommand": "pnpm  build",
