@@ -2,6 +2,7 @@
   "name": "api",
   "private": true,
   "scripts": {
+    "prebuild": "node prebuild.js",
     "build": "nest build",
     "dev": "nest start -b swc -w",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
