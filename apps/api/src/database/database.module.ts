@@ -9,17 +9,28 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService<Env>) => {
-        const dbType = config.get('DB_TYPE');
+        // const dbType = config.get('DB_TYPE');
 
-        if (!dbType) {
-          return {
-            type: 'sqlite',
-            database: ':memory:',
-            entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-            synchronize: true,
-          };
-        }
+        // if (!dbType) {
+        //   return {
+        //     type: 'sqlite',
+        //     database: ':memory:',
+        //     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        //     synchronize: true,
+        //   };
+        // }
 
+        // return {
+        //   type: 'postgres',
+        //   host: config.get('DB_HOST'),
+        //   port: config.get('DB_PORT'),
+        //   username: config.get('DB_USERNAME'),
+        //   password: config.get('DB_PASSWORD'),
+        //   database: config.get('DB_NAME'),
+        //   autoLoadEntities: true,
+        //   synchronize: config.get('NODE_ENV') !== 'production',
+        //   logging: config.get('NODE_ENV') !== 'production',
+        // };
         return {
           type: 'postgres',
           host: config.get('DB_HOST'),
@@ -27,6 +38,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           username: config.get('DB_USERNAME'),
           password: config.get('DB_PASSWORD'),
           database: config.get('DB_NAME'),
+          ssl: {
+            rejectUnauthorized: false,
+          },
           autoLoadEntities: true,
           synchronize: config.get('NODE_ENV') !== 'production',
           logging: config.get('NODE_ENV') !== 'production',
